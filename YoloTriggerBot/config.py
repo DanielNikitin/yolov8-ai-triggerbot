@@ -1,5 +1,9 @@
 import ctypes
+<<<<<<< HEAD
 from spray_settings import load_spray_pattern
+=======
+from pattern import load_spray_pattern
+>>>>>>> c958aab0c56f2e3e4e401550b52ab194329d1bca
 
 class Config:
     def __init__(self):
@@ -29,7 +33,11 @@ class Config:
         }
 
         self.Running = True
+<<<<<<< HEAD
         self.AiToggle = True
+=======
+        self.AimToggle = True
+>>>>>>> c958aab0c56f2e3e4e401550b52ab194329d1bca
         self.delay = 0.5 # shoot delay
         self.radius = 6 # crosshair size
 
@@ -38,6 +46,7 @@ class Config:
         self.aim_threshold_x = 0.3  # % от ширины цели (обводка)
         self.aim_threshold_y = 0.3   # % от высоты цели (обводка)
 
+<<<<<<< HEAD
         self.target_dot = None  # DEBUG BLUE DOT
 
         self.detect_classes = [0, 2]  # CT / T
@@ -67,3 +76,28 @@ class Config:
         self.smooth_mouse_move_debug = True
 
 cfg = Config()
+=======
+        self.target_dot = None  # точка в дебаге
+
+        self.detect_classes = [0, 2]  # CT / T
+        self.target_name = "T" # default
+
+        self.show_debug_window = 0     # Показывать окно с картинкой от ИИ
+        self.show_fps = 0              # Показывать FPS в углу
+        self.show_gui_menu = 1         # Запуск GUI Меню
+
+        self.recoil_control = False  # Состояние Отдачи
+        self.recoil_random_range = 0
+
+        self.selected_weapon = "ak"
+        pattern, steps, delay = load_spray_pattern(f"{self.selected_weapon}.txt")
+        self.spray_pattern = pattern
+        self.recoil_steps = steps
+        self.recoil_step_delay = delay
+
+        self.is_firing = False
+
+        self.current_recoil_index = -1  # индексация текущей координаты мыши для рекоила
+
+config = Config()
+>>>>>>> c958aab0c56f2e3e4e401550b52ab194329d1bca
