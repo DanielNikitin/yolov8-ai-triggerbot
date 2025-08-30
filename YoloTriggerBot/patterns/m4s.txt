@@ -1,12 +1,12 @@
 {
-  "pattern": [
+  "pattern_data": [
     [
       0,
-      0
+      1
     ],
     [
       5,
-      10
+      11
     ],
     [
       -2,
@@ -81,6 +81,6 @@
       0
     ]
   ],
-  "steps": 9,
-  "step_delay": 0.01
+  "steps_data": 9,
+  "step_delay_data": 0.01
 }

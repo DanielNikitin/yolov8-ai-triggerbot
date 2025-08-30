@@ -1,0 +1,8 @@
+echo pywin32 > requirements.txt
+echo customtkinter >> requirements.txt
+echo numpy >> requirements.txt
+echo ultralytics >> requirements.txt
+echo opencv-python >> requirements.txt
+echo mss >> requirements.txt
+
+## pip install -r requirements.txt
