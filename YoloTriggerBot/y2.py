@@ -1,4 +1,4 @@
-import win32api, win32con 
+import win32api, win32con
 # window API win32con.KEYEVENTF_KEYUP = 0x0002 (unpress key)  // win32api.keybd_event(0x57, 0, 0, 0) (press W)
 import win32gui # find window by name, open/close etc..
 import ctypes # for dynamic resolution
