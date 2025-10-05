@@ -1,8 +1,10 @@
-echo pywin32 > requirements.txt
-echo customtkinter >> requirements.txt
-echo numpy >> requirements.txt
-echo ultralytics >> requirements.txt
-echo opencv-python >> requirements.txt
-echo mss >> requirements.txt
+pywin32
+customtkinter
+numpy
+ultralytics
+opencv-python
+mss
 
-## pip install -r requirements.txt
+# pip uninstall torch for delete cuda for cpu
+# torch torchvision --index-url https://download.pytorch.org/whl/cu118
+# pip install -r requirements.txt

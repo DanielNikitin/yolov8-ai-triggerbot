@@ -172,6 +172,11 @@ def main():
     
     overlayThread = threading.Thread(target=CreateOverlay)
     overlayThread.start()
+
+    #FPS
+    frame_count = 0
+    start_time = time.time()
+    fps = 0
     
     while config.Running:
         time.sleep(0.001)
@@ -205,12 +210,25 @@ def main():
                 for i in range(config.movementSteps):
                     win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(moveX*config.MovementCoefficientX), int(moveY*config.MovementCoefficientY) , 0, 0)
                     time.sleep(config.delay)
+
+        # 🔢 FPS: обновление счётчика
+        frame_count += 1
+        elapsed_time = time.time() - start_time
+        if elapsed_time >= 1.0:
+            fps = frame_count / elapsed_time
+            frame_count = 0
+            start_time = time.time()
+
+        # 🔤 Отображение FPS на кадре
+        cv2.putText(GameFrame, f"FPS: {fps:.2f}", (10, 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
                                 
         cv2.rectangle(GameFrame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
         cv2.imshow("Game Frame", GameFrame)        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             config.Running = False
             break       
+        
     cv2.destroyAllWindows()
     overlayThread.join()
                  

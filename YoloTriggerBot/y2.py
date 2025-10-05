@@ -471,7 +471,7 @@ def main():
     noDetectionIteration = 1
 
     # AI
-    model = ultralytics.YOLO("bestv3.pt")  # yolov8n.pt
+    model = ultralytics.YOLO("bestv3.pt").to("cuda")  # yolov8n.pt #cuda = gpu (30 fps) / cpu (15 fps)
     screenCapture = mss.mss()  # screen capture
 
     # OVERLAY MENU
@@ -563,6 +563,9 @@ def main():
         if cfg.show_fps:
             cv2.putText(GameFrame, f"FPS: {fps:.2f}", (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
                         0.50, (0, 255, 0), 1)
+            
+        #print("Using device:", model.device)
+
 
         # ACTIVATE DEBUG WINDOW
         if cfg.show_debug_window:
